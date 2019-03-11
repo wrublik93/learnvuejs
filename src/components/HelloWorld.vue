@@ -7,7 +7,10 @@
     <!-- сокращенная запись -->
     <p>Сокращенный синтаксис</p>
     <a :href="url">Hello world</a>
-
+    <hr>
+    <p><b>Cтрока из url</b></p>{{ url }}
+    <p><b>Строка из url реверс</b></p>{{ reversedUrl }}
+    <hr>
   </div>
 </template>
 <script>
@@ -16,6 +19,11 @@ export default {
   data () {
     return {
       url: 'https://www.google.com'
+    }
+  },
+  computed: {
+    reversedUrl: function() {
+      return this.url.split('').reverse().join('')
     }
   }
 }
