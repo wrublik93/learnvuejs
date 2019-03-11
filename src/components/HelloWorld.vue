@@ -6,11 +6,14 @@
 
     <!-- сокращенная запись -->
     <p>Сокращенный синтаксис</p>
-    <a :href="url">Hello world</a>
+    <a :href="reversedUrl">Hello world</a>
     <hr>
-    <p><b>Cтрока из url</b></p>{{ url }}
-    <p><b>Строка из url реверс</b></p>{{ reversedUrl }}
-    <hr>
+    <!--<p><b>Cтрока из url</b></p>{{ url }}-->
+    <!--<p><b>Строка из url реверс</b></p>{{ reversedUrl }}-->
+    <!--<hr>-->
+    <button v-on:click="changeUrlSetter">Изменить url (setter)</button>
+    Изменение строки URL: {{ url }}
+
   </div>
 </template>
 <script>
@@ -21,15 +24,29 @@ export default {
       url: 'https://www.google.com'
     }
   },
+  methods: {
+    changeUrlSetter: function () {
+      this.reversedUrl = 'https://www.tut.by'
+    }
+  },
   computed: {
-    reversedUrl: function() {
-      return this.url.split('').reverse().join('')
+    reversedUrl: {
+      get: function () {
+        // alert('Применение нового url');
+        return this.url.split('').reverse().join('')
+      },
+      set: function (newValue) {
+        // alert('Установка нового url: ' + newValue)
+        this.url = newValue
+      }
     }
   }
+  // computed: {
+  //   reversedUrl: function () {
+  //     return this.url.split('').reverse().join('')
+  //   }
+  // }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
