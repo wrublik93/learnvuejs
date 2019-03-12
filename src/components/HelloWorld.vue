@@ -8,12 +8,7 @@
     <p>Сокращенный синтаксис</p>
     <a :href="reversedUrl">Hello world</a>
     <hr>
-    <!--<p><b>Cтрока из url</b></p>{{ url }}-->
-    <!--<p><b>Строка из url реверс</b></p>{{ reversedUrl }}-->
-    <!--<hr>-->
-    <!--<button v-on:click="changeUrlSetter">Изменить url (setter)</button>-->
-    <!--Изменение строки URL: {{ url }}-->
-    <button @click.prevent="reversedUrl(3)">fff</button>
+    <button @click.prevent="reversedUrl='566565'">fff</button>
 
   </div>
 </template>
@@ -25,11 +20,6 @@ export default {
       url: 'https://www.google.com'
     }
   },
-  // methods: {
-  //   changeUrlSetter: function () {
-  //     this.reversedUrl = 'https://www.tut.by'
-  //   }
-  // },
   computed: {
     reversedUrl: {
       get: function () {
@@ -42,11 +32,6 @@ export default {
       }
     }
   }
-  // computed: {
-  //   reversedUrl: function () {
-  //     return this.url.split('').reverse().join('')
-  //   }
-  // }
 }
 </script>
 <style scoped>
