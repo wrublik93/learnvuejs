@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>Task Manager<br>Copyright &copy; 2019</div>
 </template>
 
 <script>

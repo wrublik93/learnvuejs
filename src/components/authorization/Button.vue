@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div><input class="inputSave" type="submit" value="Войти" ></div>
 </template>
 
 <script>

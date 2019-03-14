@@ -1,5 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    <label>Язык
+      <select class="language">
+        <option disabled>Выбор языка</option>
+        <option>Русский</option>
+        <option>Белорусский</option>
+      </select>
+    </label>
+  </div>
 </template>
 
 <script>
@@ -9,5 +17,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
