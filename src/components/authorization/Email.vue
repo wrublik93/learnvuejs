@@ -18,4 +18,22 @@ export default {
 </script>
 
 <style scoped>
+  .iconUser {
+    width: 32px;
+    margin: 0 0 -47px 0;
+  }
+  .input {
+    width: 100%;
+    border: none;
+    color: #5E5E5E;
+    background-color: rgba(255, 255, 255, 0.62);
+    padding: 10px 35px;
+    margin: 10px 0 10px 0;
+    font-size: 16px;
+  }
+  .input:focus {
+    color: black;
+    background-color: rgba(255, 255, 255, 1);
+    outline-color: aqua;
+  }
 </style>
