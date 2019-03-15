@@ -4,6 +4,7 @@
       <select class="language">
         <option disabled>Выбор языка</option>
         <option>Русский</option>
+        <option>English</option>
         <option>Белорусский</option>
       </select>
     </label>

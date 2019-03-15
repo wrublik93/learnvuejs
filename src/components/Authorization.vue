@@ -2,7 +2,7 @@
   <div class="mainDiv">
     <app-language></app-language>
     <div class="content">
-      <form action="#" class="authorization">
+      <form action="https://www.google.com" class="authorization" method="post">
         <div class="md-2">
           <app-email class="inputEmail"></app-email>
         </div>
@@ -26,7 +26,8 @@ import Password from './authorization/Password'
 export default {
   name: 'Authorization',
   data: function () {
-
+    return {
+    }
   },
   components: {
     'app-button': Button,

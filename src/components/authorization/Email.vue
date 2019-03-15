@@ -6,14 +6,45 @@
       </svg>
     </div>
     <div>
-      <input class="input" placeholder="Пользователь" type="text">
+      <input v-model="email" class="input" placeholder="Пользователь">
+      <p>{{ answer }}</p>
     </div>
   </div>
 </template>
-
 <script>
 export default {
-  name: 'Email'
+  data: function () {
+    return {
+      email: '',
+      answer: ''
+    }
+  },
+  watch: {
+    email: function (value) {
+      console.log(value)
+      this.validator(value)
+    }
+  },
+  methods: {
+    validator: function (value) {
+      let temp = []
+      if (value.indexOf('.') !== -1 && value.indexOf('@') !== -1) {
+        temp = value.split('@')
+        if (temp[0].length < 1) {
+          return false
+        }
+        temp = temp[1].split('.')
+        if (temp[0].length < 1 && temp[1].length < 1) {
+          return false
+        }
+        console.log('верный формат')
+        this.answer = ''
+      } else {
+        console.log('неверный формат')
+        this.answer = 'неверный формат'
+      }
+    }
+  }
 }
 </script>
 
