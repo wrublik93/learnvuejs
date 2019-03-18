@@ -6,14 +6,39 @@
       </svg>
     </div>
     <div>
-      <input class="input" placeholder="Пароль" type="password">
+      <input v-model="password" class="inputPass" placeholder="Пароль" type="password">
+      <div class="answerStr">{{ answer }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Password'
+  data: function () {
+    return {
+      password: '',
+      answer: ''
+    }
+  },
+  watch: {
+    password: function (value) {
+      console.log(value)
+      this.validatorPass(value)
+    }
+  },
+  methods: {
+    validatorPass: function (value) {
+      if (value.length < 4 || value.length > 17 || value.match(/[!$@^&*()}{,.;:?'"=+/]/g)) {
+        console.log('плохо')
+        this.answer = 'Длина пароля 4-17 символов. Спецсимволы запрещены'
+        document.querySelector('.inputPass').style.border = '2px solid red'
+      } else {
+        console.log('хорошо')
+        this.answer = ''
+        document.querySelector('.inputPass').style.border = '2px solid green'
+      }
+    }
+  }
 }
 </script>
 
@@ -22,7 +47,7 @@ export default {
     width: 32px;
     margin: 0 0 -51px 4px
   }
-  .input {
+  .inputPass {
     width: 100%;
     border: none;
     color: #5E5E5E;
@@ -31,9 +56,15 @@ export default {
     margin: 10px 0 10px 0;
     font-size: 16px;
   }
-  .input:focus {
+  .inputPass:focus {
     color: black;
     background-color: rgba(255, 255, 255, 1);
     outline-color: aqua;
+  }
+  .answerStr {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 5px;
   }
 </style>

@@ -7,6 +7,7 @@
     </div>
     <div>
       <input v-model="email" class="input" placeholder="Пользователь">
+      <div class="answerEmail">{{ answerEmail }}</div>
     </div>
   </div>
 </template>
@@ -15,7 +16,7 @@ export default {
   data: function () {
     return {
       email: '',
-      answer: ''
+      answerEmail: ''
     }
   },
   watch: {
@@ -37,9 +38,11 @@ export default {
           return false
         }
         console.log('верный формат')
+        this.answerEmail = ''
         document.querySelector('.input').style.border = '2px solid green'
       } else {
         console.log('неверный формат')
+        this.answerEmail = 'Формат адреса: xxxxx@xxx.xxx'
         document.querySelector('.input').style.border = '2px solid red'
       }
     }
@@ -65,5 +68,11 @@ export default {
     color: black;
     background-color: rgba(255, 255, 255, 1);
     outline-color: aqua;
+  }
+  .answerEmail {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 5px;
   }
 </style>
