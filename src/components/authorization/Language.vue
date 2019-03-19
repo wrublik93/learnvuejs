@@ -1,11 +1,9 @@
 <template>
   <div class="header">
-    <label>Язык
-      <select class="language">
-        <option disabled>Выбор языка</option>
-        <option>Русский</option>
-        <option>English</option>
-        <option>Белорусский</option>
+    <label>
+      <span>{{selected}}</span>
+      <select v-model="selected" class="language">
+        <option v-for="option in options" :key="option.id" v-bind:value="option.text"> {{ option.value }} </option>
       </select>
     </label>
   </div>
@@ -13,7 +11,16 @@
 
 <script>
 export default {
-  name: 'Language'
+  data: function () {
+    return {
+      selected: 'Язык',
+      options: [
+        {text: 'Язык', value: 'Русский'},
+        {text: 'Language', value: 'English'},
+        {text: 'Мова', value: 'Беларуская'}
+      ]
+    }
+  }
 }
 </script>
 
