@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ed3092e-63c8-4f19-8447-49b461cd12c9" name="Default Changelist" comment="auth ver 1">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Authorization.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/authorization/Button.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/authorization/Checkbox.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/authorization/Email.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/authorization/Footer.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/authorization/Language.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/authorization/Password.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" />
-    </list>
+    <list default="true" id="5ed3092e-63c8-4f19-8447-49b461cd12c9" name="Default Changelist" comment="auth ver 1" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -70,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="1853" />
@@ -158,7 +145,7 @@
       <workItem from="1552541850172" duration="33887000" />
       <workItem from="1552640320806" duration="15407000" />
       <workItem from="1552887166795" duration="27572000" />
-      <workItem from="1553060145746" duration="2166000" />
+      <workItem from="1553060145746" duration="2475000" />
     </task>
     <task id="LOCAL-00001" summary="delete HelloWorld">
       <created>1552394904904</created>
@@ -185,10 +172,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131969000" />
+    <option name="totallyTimeSpent" value="132278000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19661388" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
