@@ -1,10 +1,36 @@
 <template>
-  <div><input class="inputSave" type="submit" value="Войти" ></div>
+  <div>
+    <input class="inputSave" type="submit" v-bind:value="buttonTextLang">
+  </div>
 </template>
 
 <script>
+  import Translate from '../../translate/translate'
 export default {
-  name: 'Button'
+  name: 'Button',
+  data: function () {
+    return {
+      buttonTextLang: 'Войти'
+    }
+  },
+  props: ['selected'],
+  watch: {
+    selected: function (value) {
+      console.log('получил в button.vue данные от родителя ' + value)
+      this.setTextButton(value)
+    }
+  },
+  methods: {
+    setTextButton (value) {
+      if (value === 'Мова') {
+        this.buttonTextLang = Translate.by.buttonName
+      } else if (value === 'Язык') {
+        this.buttonTextLang = Translate.ru.buttonName
+      } else if (value === 'Language') {
+        this.buttonTextLang = Translate.en.buttonName
+      }
+    }
+  }
 }
 </script>
 

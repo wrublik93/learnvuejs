@@ -1,13 +1,37 @@
 <template>
   <div class="checkbox md-2">
     <input type="checkbox" id="checkboxSave">
-    <span for="checkboxSave">Запомнить</span>
+    <span for="checkboxSave">{{ checkboxTextLang }}</span>
   </div>
 </template>
 
 <script>
+  import Translate from '../../translate/translate'
 export default {
-  name: 'Checkbox'
+  name: 'Checkbox',
+  data: function () {
+    return {
+      checkboxTextLang: 'Запомнить'
+    }
+  },
+  props: ['selected'],
+  watch: {
+    selected: function (value) {
+      console.log('получил в checkbox.vue данные от родителя ' + value)
+      this.setTextCheckbox(value)
+    }
+  },
+  methods: {
+    setTextCheckbox (value) {
+      if (value === 'Мова') {
+        this.checkboxTextLang = Translate.by.checkboxName
+      } else if (value === 'Язык') {
+        this.checkboxTextLang = Translate.ru.checkboxName
+      } else if (value === 'Language') {
+        this.checkboxTextLang = Translate.en.checkboxName
+      }
+    }
+  }
 }
 </script>
 

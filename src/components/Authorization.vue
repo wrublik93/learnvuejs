@@ -1,17 +1,16 @@
 <template>
   <div class="mainDiv">
-    {{ label }}
-    <app-language></app-language>
+    <app-language :onTranslate="onTranslate"></app-language>
     <div class="content">
       <form action="https://www.google.com" class="authorization" method="post">
         <div class="md-2">
-          <app-email class="inputEmail"></app-email>
+          <app-email class="inputEmail" :selected="selected"></app-email>
         </div>
         <div class="md-2-pass">
-          <app-password class="inputPassword"></app-password>
+          <app-password class="inputPassword" :selected="selected"></app-password>
         </div>
-        <app-checkbox></app-checkbox>
-        <app-button class="buttonSave"></app-button>
+        <app-checkbox :selected="selected"></app-checkbox>
+        <app-button class="buttonSave" :selected="selected"></app-button>
       </form>
     </div>
     <app-footer class="footer"></app-footer>
@@ -24,10 +23,12 @@ import Email from './authorization/Email'
 import Footer from './authorization/Footer'
 import Language from './authorization/Language'
 import Password from './authorization/Password'
+
 export default {
   name: 'Authorization',
   data: function () {
     return {
+      selected: ''
     }
   },
   components: {
@@ -37,6 +38,12 @@ export default {
     'app-footer': Footer,
     'app-language': Language,
     'app-password': Password
+  },
+  methods: {
+    onTranslate (data) {
+      this.selected = data.selected
+      console.log('Получил данные в родитель из Language.vue', data)
+    }
   }
 }
 </script>

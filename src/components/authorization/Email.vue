@@ -6,23 +6,30 @@
       </svg>
     </div>
     <div>
-      <input v-model="email" class="input" placeholder="Пользователь">
-      <div class="answerEmail">{{ answerEmail }}</div>
+      <input v-model="email" class="input" v-bind:placeholder="emailTextLang">
+      <div class="answerEmail"></div>
     </div>
   </div>
 </template>
 <script>
+  import Translate from '../../translate/translate'
 export default {
   data: function () {
     return {
       email: '',
-      answerEmail: ''
+      answerEmail: '',
+      emailTextLang: 'Пользователь'
     }
   },
+  props: ['selected'],
   watch: {
     email: function (value) {
       console.log(value)
       this.validator(value)
+    },
+    selected: function (value) {
+      console.log('получил в email.vue данные от родителя ' + value)
+      this.setTextEmail(value)
     }
   },
   methods: {
@@ -44,6 +51,15 @@ export default {
         console.log('неверный формат')
         this.answerEmail = 'Формат адреса: xxxxx@xxx.xxx'
         document.querySelector('.input').style.border = '2px solid red'
+      }
+    },
+    setTextEmail (value) {
+      if (value === 'Мова') {
+        this.emailTextLang = Translate.by.inputEmail
+      } else if (value === 'Язык') {
+        this.emailTextLang = Translate.ru.inputEmail
+      } else if (value === 'Language') {
+        this.emailTextLang = Translate.en.inputEmail
       }
     }
   }

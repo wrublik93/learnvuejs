@@ -2,8 +2,8 @@
   <div class="header">
     <label>
       <span>{{selected}}</span>
-      <select v-model="selected" class="language">
-        <option v-for="option in options" :key="option.id" v-bind:value="option.text"> {{ option.value }} </option>
+      <select v-model="selected" class="language" @change="translateText">
+        <option v-for="option in options" :key="option.id" v-bind:value="option.text"> {{ option.textLang }} </option>
       </select>
     </label>
   </div>
@@ -15,12 +15,43 @@ export default {
     return {
       selected: 'Язык',
       options: [
-        {text: 'Язык', value: 'Русский'},
-        {text: 'Language', value: 'English'},
-        {text: 'Мова', value: 'Беларуская'}
-      ]
+        {text: 'Язык', textLang: 'Русский'},
+        {text: 'Language', textLang: 'English'},
+        {text: 'Мова', textLang: 'Беларуская'}
+      ],
+      // setLocale: this.setLocales
+
     }
-  }
+  },
+  // watch: {
+  //   selected: function (value) {
+  //     this.setLang(value)
+  //   }
+  // },
+  // methods: {
+  //   translateText () {
+  //     // let setLocale = ''
+  //     // if (value === 'Language') {
+  //     //   setLocale = value
+  //     // } else if (value === 'Язык') {
+  //     //   setLocale = value
+  //     // } else if (value === 'Мова') {
+  //     //   setLocale = value
+  //     // }
+  //     // console.log(setLocale)
+  //     this.$emit('translateText', {
+  //       selected: this.selected,
+  //     })
+  //   }
+  // },
+  methods: {
+    translateText () {
+      this.onTranslate({
+        selected: this.selected,
+      })
+    }
+  },
+  props: ['onTranslate']
 }
 </script>
 

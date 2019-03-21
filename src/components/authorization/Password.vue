@@ -6,38 +6,52 @@
       </svg>
     </div>
     <div>
-      <input v-model="password" class="inputPass" placeholder="Пароль" type="password">
+      <input v-model="password" class="inputPass" v-bind:placeholder="passwordTextLang" type="password">
       <div class="answerStr">{{ answer }}</div>
     </div>
   </div>
 </template>
 
 <script>
+  import Translate from '../../translate/translate'
 export default {
   data: function () {
     return {
       password: '',
-      answer: ''
+      answer: '',
+      passwordTextLang: 'Пароль'
     }
   },
+  props: ['selected'],
   watch: {
     password: function (value) {
       console.log(value)
       this.validatorPass(value)
+    },
+    selected: function (value) {
+      console.log('получил в password.vue данные от родителя ' + value)
+      this.setTextPassword(value)
     }
   },
   methods: {
-    validatorPass: function (value) {
-      if (value.length < 4 || value.length > 17 || value.match(/[!$@^&*()}{,.;:?'"=+/]/g)) {
-        console.log('плохо')
-        this.answer = 'Длина пароля 4-17 символов. Спецсимволы запрещены'
-        document.querySelector('.inputPass').style.border = '2px solid red'
-      } else {
-        console.log('хорошо')
-        this.answer = ''
-        document.querySelector('.inputPass').style.border = '2px solid green'
+      validatorPass: function (value) {
+        if (value.length < 4 || value.length > 17 || value.match(/[!$@^&*()}{,.;:?'"=+/]/g)) {
+          this.answer = 'Длина пароля 4-17 символов. Спецсимволы запрещены'
+          document.querySelector('.inputPass').style.border = '2px solid red'
+        } else {
+          this.answer = ''
+          document.querySelector('.inputPass').style.border = '2px solid green'
+        }
+      },
+      setTextPassword (value) {
+        if (value === 'Мова') {
+          this.passwordTextLang = Translate.by.inputPassword
+        } else if (value === 'Язык') {
+          this.passwordTextLang = Translate.ru.inputPassword
+        } else if (value === 'Language') {
+          this.passwordTextLang = Translate.en.inputPassword
+        }
       }
-    }
   }
 }
 </script>
