@@ -19,31 +19,8 @@ export default {
         {text: 'Language', textLang: 'English'},
         {text: 'Мова', textLang: 'Беларуская'}
       ],
-      // setLocale: this.setLocales
-
     }
   },
-  // watch: {
-  //   selected: function (value) {
-  //     this.setLang(value)
-  //   }
-  // },
-  // methods: {
-  //   translateText () {
-  //     // let setLocale = ''
-  //     // if (value === 'Language') {
-  //     //   setLocale = value
-  //     // } else if (value === 'Язык') {
-  //     //   setLocale = value
-  //     // } else if (value === 'Мова') {
-  //     //   setLocale = value
-  //     // }
-  //     // console.log(setLocale)
-  //     this.$emit('translateText', {
-  //       selected: this.selected,
-  //     })
-  //   }
-  // },
   methods: {
     translateText () {
       this.onTranslate({

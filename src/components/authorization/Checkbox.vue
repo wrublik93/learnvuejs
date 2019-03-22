@@ -17,7 +17,6 @@ export default {
   props: ['selected'],
   watch: {
     selected: function (value) {
-      console.log('получил в checkbox.vue данные от родителя ' + value)
       this.setTextCheckbox(value)
     }
   },

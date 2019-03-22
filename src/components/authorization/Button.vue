@@ -16,7 +16,6 @@ export default {
   props: ['selected'],
   watch: {
     selected: function (value) {
-      console.log('получил в button.vue данные от родителя ' + value)
       this.setTextButton(value)
     }
   },

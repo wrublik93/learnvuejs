@@ -29,7 +29,6 @@ export default {
       this.validatorPass(value)
     },
     selected: function (value) {
-      console.log('получил в password.vue данные от родителя ' + value)
       this.setTextPassword(value)
     }
   },

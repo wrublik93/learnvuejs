@@ -42,7 +42,6 @@ export default {
   methods: {
     onTranslate (data) {
       this.selected = data.selected
-      console.log('Получил данные в родитель из Language.vue', data)
     }
   }
 }

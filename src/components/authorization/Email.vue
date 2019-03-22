@@ -28,7 +28,6 @@ export default {
       this.validator(value)
     },
     selected: function (value) {
-      console.log('получил в email.vue данные от родителя ' + value)
       this.setTextEmail(value)
     }
   },
@@ -44,11 +43,9 @@ export default {
         if (temp[0].length < 1 && temp[1].length < 1) {
           return false
         }
-        console.log('верный формат')
         this.answerEmail = ''
         document.querySelector('.input').style.border = '2px solid green'
       } else {
-        console.log('неверный формат')
         this.answerEmail = 'Формат адреса: xxxxx@xxx.xxx'
         document.querySelector('.input').style.border = '2px solid red'
       }
