@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: 'Languagemain',
+    name: 'Language',
     data: function () {
       return {
         changeMainLang: 'Язык',
@@ -28,8 +28,8 @@
           changeMainLang: this.changeMainLang,
         })
       }
-    },
-    props: ['onTranslate']
+    }
+    // props: ['onTranslate']
   }
 </script>
 
@@ -40,6 +40,7 @@
         text-align: right;
         font-family: Roboto,serif;
         font-size: 18px;
+        padding-top: 10px;
     }
     .language {
         border: none;

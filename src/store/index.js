@@ -1,19 +1,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import translate from './modules/translate'
+import user from './modules/user'
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
-  state: {
-
-  },
-  getters: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  },
+export default new Vuex.Store({
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
+  modules: {
+    translate,
+    user
+  }
 });

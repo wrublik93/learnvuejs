@@ -3,7 +3,7 @@
     <label>
       <span>{{selected}}</span>
       <select v-model="selected" class="language" @change="translateText">
-        <option v-for="option in options" :key="option.id" v-bind:value="option.text"> {{ option.textLang }} </option>
+        <option v-for="option in options" :key="option.id" v-bind:value="option.value"> {{ option.label }} </option>
       </select>
     </label>
   </div>
@@ -15,9 +15,9 @@ export default {
     return {
       selected: 'Язык',
       options: [
-        {text: 'Язык', textLang: 'Русский'},
-        {text: 'Language', textLang: 'English'},
-        {text: 'Мова', textLang: 'Беларуская'}
+        {value: 'Язык', label: 'Русский'},
+        {value: 'Language', label: 'English'},
+        {value: 'Мова', label: 'Беларуская'}
       ],
     }
   },
@@ -35,6 +35,7 @@ export default {
 <style scoped>
   .header {
     height: 50px;
+    padding-top: 10px;
     color: #E0E0E0;;
     text-align: right;
     font-family: Roboto,serif;

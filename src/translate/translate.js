@@ -3,7 +3,7 @@ export default {
     inputEmail: 'Карыстальнік',
     inputPassword: 'Пароль',
     checkboxName: 'Запомніць',
-    buttonName: 'Увайсці'
+    buttonName: 'Увайсці',
   },
   ru: {
     inputEmail: 'Пользователь',

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import Translate from '../../translate/translate'
-export default {
+  import { mapGetters } from 'vuex'
+  export default {
   name: 'Checkbox',
   data: function () {
     return {
@@ -18,18 +18,23 @@ export default {
   watch: {
     selected: function (value) {
       this.setTextCheckbox(value)
-    }
+    },
   },
   methods: {
     setTextCheckbox (value) {
       if (value === 'Мова') {
-        this.checkboxTextLang = Translate.by.checkboxName
+        this.checkboxTextLang = this.GET_CURRENT_LOCALE.by.checkboxName
       } else if (value === 'Язык') {
-        this.checkboxTextLang = Translate.ru.checkboxName
+        this.checkboxTextLang = this.GET_CURRENT_LOCALE.ru.checkboxName
       } else if (value === 'Language') {
-        this.checkboxTextLang = Translate.en.checkboxName
+        this.checkboxTextLang = this.GET_CURRENT_LOCALE.en.checkboxName
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      GET_CURRENT_LOCALE:'translate/GET_CURRENT_LOCALE'
+    })
   }
 }
 </script>

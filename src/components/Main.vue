@@ -1,20 +1,29 @@
 <template>
     <div class="mainPage">
-        <language-main-page :onTranslate="onTranslate"></language-main-page>
+        <div class="firstRow">
+            <button-main-page></button-main-page>
+            <language-main-page :onTranslate="onTranslate"></language-main-page>
+        </div>
+        <footer-main-page class="footer"></footer-main-page>
     </div>
 </template>
 
 <script>
-    import Languagemain from './mainpage/Languagemain'
+    import Language from './main/Language'
+    import Footer from './main/Footer'
+    import Button from './main/Button'
   export default {
-    name: 'Mainpage',
+    name: 'Main',
     data: function () {
       return {
         changeMainLang: ''
       }
     },
     components: {
-      'language-main-page' : Languagemain
+      'language-main-page' : Language,
+      'footer-main-page' : Footer,
+      'button-main-page' : Button
+
     },
     methods: {
       onTranslate (data) {
@@ -33,5 +42,10 @@
         min-height: calc(100vh);
         width: 100%;
         background: linear-gradient(47.41deg, #0066B0 0.46%, rgba(130, 212, 197, 0) 100%), radial-gradient(1848.24px at 100% 0%, #6244B8 0%, rgba(64, 35, 126, 0) 100%), radial-gradient(2388.70px at 130.06% 52.06%, #00F0FF 0%, rgba(76, 44, 145, 0) 100%);
+    }
+
+    .firstRow {
+        display: flex;
+        justify-content: flex-end;
     }
 </style>
