@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Translate from '../../translate/translate'
+  import { mapGetters } from 'vuex'
 export default {
   name: 'Button',
   data: function () {
@@ -22,13 +22,19 @@ export default {
   methods: {
     setTextButton (value) {
       if (value === 'Мова') {
-        this.buttonTextLang = Translate.by.buttonName
+        this.buttonTextLang = this.GET_CURRENT_LOCALE.by.buttonName
       } else if (value === 'Язык') {
-        this.buttonTextLang = Translate.ru.buttonName
+        this.buttonTextLang = this.GET_CURRENT_LOCALE.ru.buttonName
       } else if (value === 'Language') {
-        this.buttonTextLang = Translate.en.buttonName
+        this.buttonTextLang = this.GET_CURRENT_LOCALE.en.buttonName
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      GET_CURRENT_LOCALE:'translate/GET_CURRENT_LOCALE'
+
+  })
   }
 }
 </script>

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import Translate from '../../translate/translate'
+  import { mapGetters } from 'vuex'
 export default {
   data: function () {
     return {
@@ -27,6 +27,7 @@ export default {
     password: function (value) {
       console.log(value)
       this.validatorPass(value)
+      this.entryPass(value)
     },
     selected: function (value) {
       this.setTextPassword(value)
@@ -44,13 +45,24 @@ export default {
       },
       setTextPassword (value) {
         if (value === 'Мова') {
-          this.passwordTextLang = Translate.by.inputPassword
+          this.passwordTextLang = this.GET_CURRENT_LOCALE.by.inputPassword
         } else if (value === 'Язык') {
-          this.passwordTextLang = Translate.ru.inputPassword
+          this.passwordTextLang = this.GET_CURRENT_LOCALE.ru.inputPassword
         } else if (value === 'Language') {
-          this.passwordTextLang = Translate.en.inputPassword
+          this.passwordTextLang = this.GET_CURRENT_LOCALE.en.inputPassword
         }
-      }
+      },
+    entryPass (value) {
+        if (value === this.GET_USER.user.userPassword) {
+          console.log('good pass')
+        }
+    }
+  },
+  computed: {
+    ...mapGetters({
+      GET_CURRENT_LOCALE:'translate/GET_CURRENT_LOCALE',
+      GET_USER:'user/GET_USER'
+    })
   }
 }
 </script>

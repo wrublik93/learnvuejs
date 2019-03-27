@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-  import Translate from '../../translate/translate'
+  import { mapGetters } from 'vuex'
 export default {
   data: function () {
     return {
@@ -26,6 +26,7 @@ export default {
     email: function (value) {
       console.log(value)
       this.validator(value)
+      this.entry(value)
     },
     selected: function (value) {
       this.setTextEmail(value)
@@ -52,13 +53,24 @@ export default {
     },
     setTextEmail (value) {
       if (value === 'Мова') {
-        this.emailTextLang = Translate.by.inputEmail
+        this.emailTextLang = this.GET_CURRENT_LOCALE.by.inputEmail
       } else if (value === 'Язык') {
-        this.emailTextLang = Translate.ru.inputEmail
+        this.emailTextLang = this.GET_CURRENT_LOCALE.ru.inputEmail
       } else if (value === 'Language') {
-        this.emailTextLang = Translate.en.inputEmail
+        this.emailTextLang = this.GET_CURRENT_LOCALE.en.inputEmail
+      }
+    },
+    entry (value) {
+      if (value === this.GET_USER.user.userEmail) {
+        console.log('good email')
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      GET_CURRENT_LOCALE:'translate/GET_CURRENT_LOCALE',
+      GET_USER:'user/GET_USER'
+    })
   }
 }
 </script>

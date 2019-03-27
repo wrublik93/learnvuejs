@@ -1,7 +1,7 @@
 <template>
     <div class="mainPage">
         <div class="firstRow">
-            <button-main-page></button-main-page>
+            <router-link to="./login"><button-main-page></button-main-page></router-link>
             <language-main-page :onTranslate="onTranslate"></language-main-page>
         </div>
         <footer-main-page class="footer"></footer-main-page>
