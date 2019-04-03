@@ -1,9 +1,10 @@
 <template>
     <div class="mainPage">
         <div class="firstRow">
-            <router-link to="./login"><button-main-page></button-main-page></router-link>
+            <button-main-page :changeMainLang="changeMainLang"></button-main-page>
             <language-main-page :onTranslate="onTranslate"></language-main-page>
         </div>
+        <text-main-page></text-main-page>
         <footer-main-page class="footer"></footer-main-page>
     </div>
 </template>
@@ -12,25 +13,28 @@
     import Language from './main/Language'
     import Footer from './main/Footer'
     import Button from './main/Button'
-  export default {
-    name: 'Main',
-    data: function () {
-      return {
-        changeMainLang: ''
-      }
-    },
-    components: {
-      'language-main-page' : Language,
-      'footer-main-page' : Footer,
-      'button-main-page' : Button
+    import Text from './main/Text'
 
-    },
-    methods: {
-      onTranslate (data) {
-        this.changeMainLang = data.changeMainLang
-      }
+    export default {
+        name: 'Main',
+        data: function () {
+            return {
+                changeMainLang: ''
+            }
+        },
+        components: {
+            'language-main-page': Language,
+            'footer-main-page': Footer,
+            'button-main-page': Button,
+            'text-main-page': Text
+
+        },
+        methods: {
+            onTranslate(data) {
+                this.changeMainLang = data.changeMainLang
+            }
+        }
     }
-  }
 </script>
 
 <style scoped>

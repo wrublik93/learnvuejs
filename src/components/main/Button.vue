@@ -1,12 +1,47 @@
 <template>
     <div>
-        <input class="inputSave" type="submit" value="Войти">
+        <input @click="exit" class="inputSave" type="submit" v-bind:value="buttonTextLang">
     </div>
 </template>
 
 <script>
+    import router from '../../router'
+    import { mapGetters } from 'vuex'
   export default {
-    name: 'Button'
+    name: 'Button',
+      data: function () {
+          return {
+              buttonTextLang: 'Выйти'
+          }
+      },
+      props: ['changeMainLang'],
+      watch: {
+        changeMainLang: function (value) {
+            this.setTextButton(value)
+        }
+      },
+      methods: {
+          setTextButton (value) {
+              if (value === 'Мова') {
+                  this.buttonTextLang = this.GET_CURRENT_LOCALE_BY.buttonExit
+              } else if (value === 'Язык') {
+                  this.buttonTextLang = this.GET_CURRENT_LOCALE_RU.buttonExit
+              } else if (value === 'Language') {
+                  this.buttonTextLang = this.GET_CURRENT_LOCALE_EN.buttonExit
+              }
+          },
+          exit: function () {
+              router.push('/login');
+              localStorage.clear();
+          }
+      },
+      computed: {
+          ...mapGetters({
+              GET_CURRENT_LOCALE_RU:'translate/GET_CURRENT_LOCALE_RU',
+              GET_CURRENT_LOCALE_BY:'translate/GET_CURRENT_LOCALE_BY',
+              GET_CURRENT_LOCALE_EN:'translate/GET_CURRENT_LOCALE_EN'
+          })
+      }
   }
 </script>
 
