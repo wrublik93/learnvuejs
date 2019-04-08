@@ -1,5 +1,5 @@
 <template>
-    <div class="mainPage">
+    <div class="mainPage" v-if="showVue()">
         <div class="firstRow">
             <button-main-page :changeMainLang="changeMainLang"></button-main-page>
             <language-main-page :onTranslate="onTranslate"></language-main-page>
@@ -13,7 +13,8 @@
     import Language from './main/Language'
     import Footer from './main/Footer'
     import Button from './main/Button'
-    import Text from './main/Text'
+    import TextContent from './main/TextContent'
+    import router from '../router'
 
     export default {
         name: 'Main',
@@ -26,12 +27,19 @@
             'language-main-page': Language,
             'footer-main-page': Footer,
             'button-main-page': Button,
-            'text-main-page': Text
+            'text-main-page': TextContent
 
         },
         methods: {
             onTranslate(data) {
                 this.changeMainLang = data.changeMainLang
+            },
+            showVue: function () {
+                if (localStorage.getItem('roles') === 'admin' || localStorage.getItem('roles') === 'user') {
+                    return true
+                } else {
+                    router.push('/login')
+                }
             }
         }
     }

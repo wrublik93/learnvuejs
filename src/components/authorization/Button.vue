@@ -23,7 +23,7 @@
         methods: {
             setTextButton(value) {
                 if (value === 'Мова') {
-                    this.buttonTextLang = this.GET_CURRENT_LOCALE_BY.buttonName
+                    this.buttonTextLang = this.GET_CURRENT_LOCALE_BY.buttonName;
                 } else if (value === 'Язык') {
                     this.buttonTextLang = this.GET_CURRENT_LOCALE_RU.buttonName
                 } else if (value === 'Language') {
@@ -40,8 +40,8 @@
                 GET_CURRENT_LOCALE_BY:'translate/GET_CURRENT_LOCALE_BY',
                 GET_CURRENT_LOCALE_EN:'translate/GET_CURRENT_LOCALE_EN',
                 GET_USERNAME: 'user/GET_USERNAME',
-                GET_PASSWORD: 'user/GET_PASSWORD'
-            })
+                GET_PASSWORD: 'user/GET_PASSWORD',
+            }),
         }
     }
 </script>

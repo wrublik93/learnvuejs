@@ -10,23 +10,16 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: '',
+            path: '/',
             name: 'home',
             component: App,
             beforeEnter: (to, from, next) => {
-                if (localStorage.getItem('password') === '123' && localStorage.getItem('username') === 'test@gmail.com') {
+                if (localStorage.getItem('roles') === 'admin' || localStorage.getItem('roles') === 'user') {
                     next({path: 'main'})
                 } else {
                     next({path: 'login'})
                 }
             },
-            // children: [
-            //     {
-            //         name: 'main',
-            //         path: 'main',
-            //         component: Main,
-            //     }
-            // ]
         },
         {
             name: 'main',
@@ -36,12 +29,11 @@ export default new Router({
         {
             name: 'Authorization',
             path: '/login',
-            component: Authorization,
-
+            component: Authorization
         },
-
     ]
 })
+
 
 
 

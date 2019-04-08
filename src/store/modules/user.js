@@ -1,8 +1,9 @@
 import router from '../../router'
+import User from '../../users/user'
 
 const state = {
     userEmail: '',
-    userPassword: '',
+    userPassword: ''
 };
 const getters = {
     GET_USERNAME: state => state.userEmail,
@@ -26,12 +27,13 @@ const actions = {
         context.commit('SET_PASSWORD')
     },
     VALID_CREDENTIALS() {
-        if (state.userEmail === 'test@gmail.com' && state.userPassword === '123') {
-            localStorage.setItem('username',state.userEmail);
-            localStorage.setItem('password',state.userPassword);
-            router.push('/main')
-        } else {
-            alert('Неверные учетные данные!')
+        for (var i=0; i<User.userBase.length; i++) {
+            if (state.userEmail === User.userBase[i].userEmail && state.userPassword === User.userBase[i].userPassword) {
+                localStorage.setItem('username', state.userEmail);
+                localStorage.setItem('password', state.userPassword);
+                localStorage.setItem('roles', User.userBase[i].userRoles);
+                router.push('main');
+            }
         }
     }
 };
@@ -43,3 +45,4 @@ export default {
     mutations,
     actions
 }
+

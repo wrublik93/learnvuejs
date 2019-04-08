@@ -1,5 +1,5 @@
 <template>
-    <div class="mainDiv">
+    <div class="mainDiv" v-if="showVue()">
         <app-language :onTranslate="onTranslate"></app-language>
         <div class="content">
             <form class="authorization">
@@ -23,6 +23,7 @@
     import Footer from './authorization/Footer'
     import Language from './authorization/Language'
     import Password from './authorization/Password'
+    import router from '../router'
 
     export default {
         name: 'Authorization',
@@ -43,6 +44,13 @@
             onTranslate(data) {
                 this.selected = data.selected
             },
+            showVue: function () {
+                if (localStorage.getItem('roles') !== 'admin' && localStorage.getItem('roles') !== 'user') {
+                    return true
+                } else {
+                    router.push('/main')
+                }
+            }
         }
     }
 </script>
